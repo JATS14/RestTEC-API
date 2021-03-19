@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 namespace RestTEC.DB
 {
     // Clase menu, es la clase que contiene todos los Platos 
@@ -26,7 +29,7 @@ namespace RestTEC.DB
         // Resticciones:
         public void agregar_plato_menu(Plato plato)
         {
-            
+            Lista_Platos.Append(plato);
         }
         // 
         // Entradas:
@@ -34,7 +37,24 @@ namespace RestTEC.DB
         // Resticciones:
         public void eliminar_Plato_Menu(Plato plato)
         {
-            
+            for (int i = 0; i < Lista_Platos.Length;i++)
+            {
+                if (Lista_Platos[i].nombre == plato.nombre)
+                {
+                    Lista_Platos = Lista_Platos.Where(e => e != Lista_Platos[i]).ToArray();
+                }
+            }
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void mostrar_Menu()
+        {
+            for (int i = 0; i < Lista_Platos.Length;i++)
+            {
+                Console.WriteLine(Lista_Platos[i].nombre);
+            }
         }
     }
 }

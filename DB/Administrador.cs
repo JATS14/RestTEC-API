@@ -1,3 +1,4 @@
+using System;
 using System.Reflection.Metadata;
 
 namespace RestTEC.DB
@@ -78,15 +79,32 @@ namespace RestTEC.DB
         {
             
         }
+        
+                // Funcionalidad menu
+        
         // 
         // Entradas:
         // Salidas:
         // Resticciones:
-        
-             // Funcionalidad menu
         public void gestionar_Menu()
         {
-            
+            for (int i = 0; i < menu.Lista_Platos.Length;i++)
+            {
+                Console.WriteLine("--------Plato "+(i+1)+", Tipo: "+ menu.Lista_Platos[i].tipo+"--------");
+                Console.WriteLine("Nombre: "+menu.Lista_Platos[i].nombre);
+                Console.WriteLine("Calorias: "+menu.Lista_Platos[i].cantidadCalorias);
+                Console.WriteLine("Tiempo estimado Preparacion: "+menu.Lista_Platos[i].tiempoEstimado);
+                //onsole.WriteLine("Estrellas Promedio: "+menu.Lista_Platos[i].);
+                Console.Write("ingredientes: ");
+                for (int j = 0; j < (menu.Lista_Platos[i].listaIngredientes.Length - 1); j++)
+                {
+                    Console.Write(menu.Lista_Platos[i].listaIngredientes[j]+", ");
+                }
+                Console.Write(menu.Lista_Platos[i].listaIngredientes[(menu.Lista_Platos[i].listaIngredientes.Length - 1)]);
+                Console.WriteLine(" ");
+                Console.WriteLine("----------------");
+            }
         }
+
     }
 }
