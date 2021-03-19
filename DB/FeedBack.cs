@@ -1,3 +1,5 @@
+using System.Security;
+
 namespace RestTEC.DB
 {
     // Clase feedback, es la clase que encapsula todos la informacion necesaria para hacer feedback
@@ -51,7 +53,7 @@ namespace RestTEC.DB
         // Resticciones:
         public void asignar_Fecha(int fecha)
         {
-            
+            this.fecha = fecha;
         }
         // 
         // Entradas:
@@ -59,7 +61,7 @@ namespace RestTEC.DB
         // Resticciones:
         public void asignar_Hora(int hora)
         {
-            
+            this.hora = hora;
         }
         // 
         // Entradas:
@@ -67,7 +69,7 @@ namespace RestTEC.DB
         // Resticciones:
         public void asignar_Estrellas(int estrellas)
         {
-            
+            this.estrellas = estrellas;
         }
     }
 }

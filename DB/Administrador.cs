@@ -12,14 +12,25 @@ namespace RestTEC.DB
         private string contrasena;
         public Pedido[] Lista_Pedidos;
         public Menu menu;
+        public Usuario[] lista_Usuarios;
+        
         //Constructor, getters y setters
-        public Administrador(string correo, string contrasena, Pedido[] listaPedidos, Menu menu)
+        public Administrador(string correo, string contrasena, Pedido[] listaPedidos, 
+                            Menu menu, Usuario[] listaUsuarios)
+        
         {
             this.correo = correo;
             this.contrasena = contrasena;
             Lista_Pedidos = listaPedidos;
             this.menu = menu;
+            lista_Usuarios = listaUsuarios;
         }
+
+        protected Administrador()
+        {
+            throw new NotImplementedException();
+        }
+
         public string Correo
         {
             get => correo;

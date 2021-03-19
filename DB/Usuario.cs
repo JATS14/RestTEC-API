@@ -1,8 +1,10 @@
+using System;
+
 namespace RestTEC.DB
 {
     //Clase Usuario, es la clase que contiene la informacion y la utilidad de los usuarios 
     // incritos a RESTEC.
-    public class Usuario
+    public class Usuario 
     {
         //Atributos
         public int cedula;
@@ -15,7 +17,8 @@ namespace RestTEC.DB
         public int fecha_Nacimiento;
 
         //Constructor, getters y setters
-        public Usuario(int cedula, string correo, string contrasena, string nombre, string apellido, int numero, string direccion, int fechaNacimiento)
+        public Usuario(int cedula, string correo, string contrasena, string nombre,
+                        string apellido, int numero, string direccion, int fechaNacimiento)
         {
             this.cedula = cedula;
             this.correo = correo;
@@ -81,9 +84,25 @@ namespace RestTEC.DB
         // Entradas:
         // Salidas:
         // Resticciones:
-        public Pedido hacer_pedido(Chef chefAsignado, Plato plato, int tiempoEstimadoFinalizacion)
+        public Pedido hacer_pedido()
         {
-            return new Pedido(chefAsignado, plato, tiempoEstimadoFinalizacion);
+            Console.WriteLine("Ingrese el numero del pedido a realizar");
+            string input = Console.ReadLine();
+            int num = Int32.Parse(input); 
+            
+            Console.WriteLine("Se hizo un pedido del plato: " + num);
+            
+            try
+            {
+                return new Pedido(null, null,
+                    0);
+            }
+            catch
+            {
+                Console.WriteLine("El plato no existe");
+                return null;
+            }
+
         }
         // 
         // Entradas:
@@ -91,6 +110,7 @@ namespace RestTEC.DB
         // Resticciones:
         public FeedBack hacer_Feedback(Usuario usuario, int fecha, int hora, int estrellas)
         {
+            
             return new FeedBack(usuario,fecha,hora,estrellas);
         }
     }

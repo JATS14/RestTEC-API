@@ -5,7 +5,7 @@ namespace RestTEC.DB
     public class Pedido
     {
         //Atributos
-        public Chef chef_Asignado = null;
+        public Chef chef_Asignado;
         public Plato plato;
         public int tiempo_estimado_finalizacion;
 

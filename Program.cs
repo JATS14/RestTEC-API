@@ -23,14 +23,23 @@ namespace RestTEC
             Plato[] Lista_Platos = {plato1,plato2};
             Menu menu = new Menu(Lista_Platos);
             
-            Administrador host = new Administrador("correo@gmial.com","123456", Lista_Pedidos,menu);
+            Usuario usuario1 = new Usuario(3088088,"usuario1@gmail.com","contrasena1",
+                        "Nombre1", "apellidos1",8888888,"Direccion1",2000112121);
+
+            Usuario[] listaUsuarios = new Usuario[] {usuario1};
             
+            Administrador host = new Administrador("correo@gmial.com","123456",
+                                                    Lista_Pedidos,menu,listaUsuarios);
             
             host.gestionar_Menu();
             
             host.menu.eliminar_Plato_Menu(plato2);
             
             host.menu.mostrar_Menu();
+            
+            Console.WriteLine("Hacer pedido");
+
+            host.lista_Usuarios[0].hacer_pedido();
             
             
             
