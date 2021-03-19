@@ -1,7 +1,10 @@
 namespace RestTEC.DB
 {
+    // Clase plato, clase que contiene la informacion de los platos para el menu
+    // Los Platos se pueden crear por los administradores.
     public class Plato
     {
+        //Atributos
         public int precio;
         public int cantidadCalorias;
         public int vecesSolicitada;
@@ -11,6 +14,7 @@ namespace RestTEC.DB
         public string nombre;
         public string tipo;
 
+        //Constructor, getters y setters
         public Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
             string[] listaFeedback, string[] listaIngredientes, string nombre, string tipo)
         {
@@ -70,6 +74,48 @@ namespace RestTEC.DB
         {
             get => tipo;
             set => tipo = value;
+        }
+    
+                //Funcionalidad PLato
+        
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void cambiar_Precio(int precio)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void agregar_Feedback(FeedBack feedBack)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void agregar_Ingrediente(string ingrediente)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void cambiar_Tiempo_Estimado()
+        {
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:    
+        }
+        public void cambiar_Veces_Solicitado()
+        {
+            
         }
     }
 }

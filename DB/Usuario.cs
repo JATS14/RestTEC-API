@@ -1,7 +1,10 @@
 namespace RestTEC.DB
 {
+    //Clase Usuario, es la clase que contiene la informacion y la utilidad de los usuarios 
+    // incritos a RESTEC.
     public class Usuario
     {
+        //Atributos
         public int cedula;
         public string correo;
         private string contrasena;
@@ -11,6 +14,7 @@ namespace RestTEC.DB
         public string direccion;
         public int fecha_Nacimiento;
 
+        //Constructor, getters y setters
         public Usuario(int cedula, string correo, string contrasena, string nombre, string apellido, int numero, string direccion, int fechaNacimiento)
         {
             this.cedula = cedula;
@@ -69,6 +73,25 @@ namespace RestTEC.DB
         {
             get => fecha_Nacimiento;
             set => fecha_Nacimiento = value;
+        }
+        
+                //Funcionalidad usuario
+        
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public Pedido hacer_pedido(Chef chefAsignado, Plato plato, int tiempoEstimadoFinalizacion)
+        {
+            return new Pedido(chefAsignado, plato, tiempoEstimadoFinalizacion);
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public FeedBack hacer_Feedback(Usuario usuario, int fecha, int hora, int estrellas)
+        {
+            return new FeedBack(usuario,fecha,hora,estrellas);
         }
     }
 }

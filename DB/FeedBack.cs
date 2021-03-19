@@ -1,12 +1,16 @@
 namespace RestTEC.DB
 {
+    // Clase feedback, es la clase que encapsula todos la informacion necesaria para hacer feedback
+    // Objetos de este tipo solo los pueden crear la clase Usuario
     public class FeedBack
     {
+        //Atributos
         public Usuario usuario;
         public int fecha;
         public int hora;
         public int estrellas;
 
+        //Constructor, getters y setters
         public FeedBack(Usuario usuario, int fecha, int hora, int estrellas)
         {
             this.usuario = usuario;
@@ -37,6 +41,33 @@ namespace RestTEC.DB
         {
             get => estrellas;
             set => estrellas = value;
+        }
+        
+                //Funcionalidad FeedBack
+                
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void asignar_Fecha(int fecha)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void asignar_Hora(int hora)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void asignar_Estrellas(int estrellas)
+        {
+            
         }
     }
 }

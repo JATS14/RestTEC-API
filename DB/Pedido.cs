@@ -1,11 +1,15 @@
 namespace RestTEC.DB
 {
+    // Clase pedido, es la clase encargada de contener la informacion de todos los pedidos
+    // Objetos de este tipo, son creadas por los usuarios, pero controladas por los chefs
     public class Pedido
     {
-        public Chef chef_Asignado;
+        //Atributos
+        public Chef chef_Asignado = null;
         public Plato plato;
         public int tiempo_estimado_finalizacion;
 
+        //Constructor, getters y setters
         public Pedido(Chef chefAsignado, Plato plato, int tiempoEstimadoFinalizacion)
         {
             chef_Asignado = chefAsignado;
@@ -29,6 +33,25 @@ namespace RestTEC.DB
         {
             get => tiempo_estimado_finalizacion;
             set => tiempo_estimado_finalizacion = value;
+        }
+                
+                    //Funcionalidad Pedido
+                    
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:            
+        public void asignar_chef(Chef chef)
+        {
+            
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public int calcular_Tiempo(Plato plato)
+        {
+            return plato.tiempoEstimado;
         }
     }
 }
