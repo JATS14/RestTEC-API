@@ -109,13 +109,12 @@ namespace RestTEC.DB
                 Console.WriteLine("El plato no existe");
                 return null;
             }
-            return null;
         }
         // 
         // Entradas:
         // Salidas:
         // Resticciones:
-        public FeedBack hacer_Feedback(Usuario usuario, int fecha, int hora, int estrellas)
+        public FeedBack hacer_Feedback(Usuario usuario, string fecha, string hora, int estrellas)
         {
             
             return new FeedBack(usuario,fecha,hora,estrellas);

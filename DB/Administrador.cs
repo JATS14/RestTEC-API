@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Text.Json;
 
 namespace RestTEC.DB
 {
@@ -71,7 +72,7 @@ namespace RestTEC.DB
         // Salidas:
         // Resticciones:
         public Plato crear_Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
-            string[] listaFeedback, string[] listaIngredientes, string nombre, string tipo)
+            IList<FeedBack> listaFeedback, IList<string> listaIngredientes, string nombre, string tipo)
         {
             return new Plato(precio, cantidadCalorias, vecesSolicitada, tiempoEstimado, 
                 listaFeedback, listaIngredientes, nombre, tipo);
@@ -165,8 +166,88 @@ namespace RestTEC.DB
                 Console.WriteLine("El pedido o el Chef no existen");
             }
         }
-        
-        
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public bool ingresar_Usuario(String correo, string contrasena)
+        {
+            for (int i = 0; i < lista_Usuarios.Count; i++)
+            {
+                if (lista_Usuarios[i].correo.Equals(correo) &&
+                    lista_Usuarios[i].Contrasena.Equals(contrasena))
+                {
+                    return true;
+                }
+            }
 
+            return false;
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public bool ingresar_Chef(String correo, string contrasena)
+        {
+            for (int i = 0; i < lista_Chefs.Count; i++)
+            {
+                if (lista_Chefs[i].correo.Equals(correo) &&
+                    lista_Chefs[i].Contrasena.Equals(contrasena))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public String get_lista_Usuarios_Json()
+        {
+            string jsonString = JsonSerializer.Serialize(lista_Usuarios);
+            return jsonString;
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public String get_lista_Chef_Json()
+        {
+            string jsonString = JsonSerializer.Serialize(lista_Chefs);
+            return jsonString;
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public String get_lista_Pedidos_Json()
+        {
+            string jsonString = JsonSerializer.Serialize(Lista_Pedidos);
+            return jsonString;
+        }
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public String get_lista_Platos_Json()
+        {
+            string jsonString = JsonSerializer.Serialize(Menu.Lista_Platos);
+            return jsonString;
+        }
+        
+        //-------------TOPS!!!!-------------
+        
+        
+        
+        //-------------FeedBack-------------
+        // 
+        // Entradas:
+        // Salidas:
+        // Resticciones:
+        public void usuario_feedback(Plato plato, FeedBack feedback)
+        {
+            Menu.buscar_PLato(plato).agregar_Feedback(feedback);
+        }
     }
 }

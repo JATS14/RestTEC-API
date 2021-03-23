@@ -7,7 +7,7 @@ namespace RestTEC.DB
     // Clase menu, es la clase que contiene todos los Platos 
     // La clase con el menu, esta dentro del administrador
     static class Menu
-    {
+    { 
     //Atributos
     public static IList<Plato> Lista_Platos;
 
@@ -77,6 +77,25 @@ namespace RestTEC.DB
     {
         
     }
+    // 
+    // Entradas:
+    // Salidas:
+    // Resticciones:
+    public static Plato buscar_PLato(Plato plato)
+    {
+        for (int i = 0; i < Lista_Platos.Count; i++)
+        {
+            if (Lista_Platos[i].nombre == plato.nombre)
+            {
+                return Lista_Platos[i];
+            }
+        }
+        
+        return null;
+    }
+    
+    
+    
     }
     
 }

@@ -8,12 +8,12 @@ namespace RestTEC.DB
     {
         //Atributos
         public Usuario usuario;
-        public int fecha;
-        public int hora;
+        public string fecha;
+        public string hora;
         public int estrellas;
 
         //Constructor, getters y setters
-        public FeedBack(Usuario usuario, int fecha, int hora, int estrellas)
+        public FeedBack(Usuario usuario, string fecha, string hora, int estrellas)
         {
             this.usuario = usuario;
             this.fecha = fecha;
@@ -27,13 +27,13 @@ namespace RestTEC.DB
             set => usuario = value;
         }
 
-        public int Fecha
+        public string Fecha
         {
             get => fecha;
             set => fecha = value;
         }
 
-        public int Hora
+        public string Hora
         {
             get => hora;
             set => hora = value;
@@ -51,7 +51,7 @@ namespace RestTEC.DB
         // Entradas:
         // Salidas:
         // Resticciones:
-        public void asignar_Fecha(int fecha)
+        public void asignar_Fecha(string fecha)
         {
             this.fecha = fecha;
         }
@@ -59,7 +59,7 @@ namespace RestTEC.DB
         // Entradas:
         // Salidas:
         // Resticciones:
-        public void asignar_Hora(int hora)
+        public void asignar_Hora(string hora)
         {
             this.hora = hora;
         }

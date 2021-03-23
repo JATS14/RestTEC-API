@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -16,26 +17,60 @@ namespace RestTEC
         {
             Menu.Instance();
             IList<Pedido> Lista_Pedidos = new List<Pedido>();
-            Plato plato1 = new Plato(100,100,0,60,new string[]{},
-                new string[]{"Sal", "pimienta", "carne", "cosas", "leche", "huevos"},
-                        "Plato 1","Desayuno");
-            Plato plato2 = new Plato(200,200,0,50,new string[]{},
-                new string[]{"Sal", "oregano", "pasta", "cosas"},"Plato 2","Almuerzo");
+            Plato plato1 = new Plato(1500,125,0,10,new List<FeedBack>(),
+                new string[]{"Arroz", "Frijoles", "Huevo", "Tocino", "Natilla", "Pan"},
+                        "Gallo Pinto","Desayuno");
+            Plato plato2 = new Plato(1000,150,0,5,new List<FeedBack>(),
+                new string[]{"Tostadas", "Mermelada", "Mantequilla", "Natilla"},"Tostadas","Desayuno");
+            
+            Plato plato3 = new Plato(2000,300,0,20,new List<FeedBack>(),
+                new string[]{"Arroz", "Frijoles", "Platano Maduro", "Ensalada","Carne o Pollo"},
+                                    "Casado","Almuerzo");
+            
+            Plato plato4 = new Plato(2000,350,0,30,new List<FeedBack>(),
+                new string[]{"Carne", "Yuca", "Zanahoria", "Papa","Cebolla","Chile dulce"},
+                    "Olla de Carne","Almuerzo");
+            
+            Plato plato5 = new Plato(1200,150,0,10,new List<FeedBack>(),
+                new string[]{"Manzana", "Crema Pastelera", "Mantequilla", "Natilla"},
+                                "Tarta de Manzana","Cafe");
+            
+            Plato plato6 = new Plato(1200,250,0,10,new List<FeedBack>(),
+                new string[]{"Chocolate Amargo", "Mantequilla", "Huevo", "Vainilla","Canela"}
+                ,"Brownie","Cafe");
+            
+            Plato plato7 = new Plato(2500,300,0,30,new List<FeedBack>(),
+                new string[]{"Arroz", "Camarones", "Pollo", "Verduras varias"},
+                            "Arroz con Camarones","Cena");
+            
+            Plato plato8 = new Plato(3000,400,0,30,new List<FeedBack>(),
+                new string[]{"Carne", "Cebolla", "Chile Dulce", "Ajo"},
+                    "Bistec Encebollado","Cena");
             
             
-            Usuario usuario1 = new Usuario(3088088,"usuario1@gmail.com","contrasena1",
-                        "Nombre1", "apellidos1",8888888,"Direccion1",2000112121);
+            Usuario usuario1 = new Usuario(303660987,"alberto120500@gmail.com","120500", 
+                "Alberto", "Espinoza",87898978,"Cartago/Cartago/Los Angeles",12052000);
+            
+            Usuario usuario2 = new Usuario(102580556,"cristin54@gmail.com","cris54", 
+                "Cristina", "Reyes",74894852,"Cartago/Cartago/Tejar",02871994);
 
             IList<Usuario> listaUsuarios = new List<Usuario>();
             listaUsuarios.Add(usuario1);
+            listaUsuarios.Add(usuario2);
             
             
-            Administrador host = new Administrador("correo@gmial.com","123456",
+            Administrador host = new Administrador("administracion@gmial.com","123456",
                                                     Lista_Pedidos, listaUsuarios, new List<Chef>());
 
             
             Menu.agregar_plato_menu(plato1);
             Menu.agregar_plato_menu(plato2);
+            Menu.agregar_plato_menu(plato3);
+            Menu.agregar_plato_menu(plato4);
+            Menu.agregar_plato_menu(plato5);
+            Menu.agregar_plato_menu(plato6);
+            Menu.agregar_plato_menu(plato7);
+            Menu.agregar_plato_menu(plato8);
             
             //Menu.mostrar_Menu();
 
@@ -52,7 +87,8 @@ namespace RestTEC
             
             Console.WriteLine("~~~~~~~~~~~~~~~~Chefs~~~~~~~~~~~~");
             
-            host.agregar_Chef(new Chef("chef1","correochef@gmail.com","fefault", new List<Pedido>()));
+            host.agregar_Chef(new Chef("Chef 1","correochef@gmail.com",
+                "default", new List<Pedido>()));
 
             host.pedido_Chef_obtener(0, 0);
             
@@ -62,8 +98,22 @@ namespace RestTEC
             
             host.gestionar_Pedidos();
             
+            Console.WriteLine("   ");
+            Console.WriteLine("||||||||||||||||||||JSON||||||||||||||||||");
             
-           // CreateHostBuilder(args).Build().Run();
+            string jsonString = JsonSerializer.Serialize(host.lista_Usuarios);
+            Console.WriteLine(jsonString);
+            
+            Console.WriteLine("   ");
+            Console.WriteLine("=====================FeedBack============");
+
+            string hora = DateTime.Now.ToString("hh:mm");
+            string fecha = DateTime.Now.ToString("yy-MM-dd");
+            
+            FeedBack feedback1 = new FeedBack(usuario1,fecha,hora,5);
+            host.usuario_feedback(plato1, feedback1);
+
+            // CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
