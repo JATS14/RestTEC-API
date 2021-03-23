@@ -88,21 +88,28 @@ namespace RestTEC.DB
         {
             Console.WriteLine("Ingrese el numero del pedido a realizar");
             string input = Console.ReadLine();
-            int num = Int32.Parse(input); 
-            
-            Console.WriteLine("Se hizo un pedido del plato: " + num);
-            
+            int num = Int32.Parse(input);
             try
             {
-                return new Pedido(null, null,
-                    0);
+                if (Menu.Lista_Platos != null)
+                {
+                    Console.WriteLine("Se hizo un pedido del plato: " + num);
+                    num = num - 1;
+                    return new Pedido(null, Menu.obtener_Menu()[num],
+                        Menu.obtener_Menu()[num].tiempoEstimado);
+                }
+                else
+                {
+                    Console.WriteLine("El plato numero "+ num + " no existe");
+                    return null;   
+                }
             }
             catch
             {
                 Console.WriteLine("El plato no existe");
                 return null;
             }
-
+            return null;
         }
         // 
         // Entradas:

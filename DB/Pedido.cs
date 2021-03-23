@@ -14,7 +14,7 @@ namespace RestTEC.DB
         {
             chef_Asignado = chefAsignado;
             this.plato = plato;
-            tiempo_estimado_finalizacion = tiempoEstimadoFinalizacion;
+            tiempo_estimado_finalizacion = plato.tiempoEstimado;
         }
 
         public Chef ChefAsignado

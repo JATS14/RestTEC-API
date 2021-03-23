@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace RestTEC.DB
 {
     // Clase plato, clase que contiene la informacion de los platos para el menu
@@ -9,14 +11,14 @@ namespace RestTEC.DB
         public int cantidadCalorias;
         public int vecesSolicitada;
         public int tiempoEstimado;
-        public string[] listaFeedback;
-        public string[] listaIngredientes;
+        public IList<string> listaFeedback;
+        public IList<string> listaIngredientes;
         public string nombre;
         public string tipo;
 
         //Constructor, getters y setters
         public Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
-            string[] listaFeedback, string[] listaIngredientes, string nombre, string tipo)
+            IList<string> listaFeedback, IList<string> listaIngredientes, string nombre, string tipo)
         {
             this.precio = precio;
             this.cantidadCalorias = cantidadCalorias;
@@ -52,13 +54,13 @@ namespace RestTEC.DB
             set => tiempoEstimado = value;
         }
 
-        public string[] ListaFeedback
+        public IList<string> ListaFeedback
         {
             get => listaFeedback;
             set => listaFeedback = value;
         }
 
-        public string[] ListaIngredientes
+        public IList<string> ListaIngredientes
         {
             get => listaIngredientes;
             set => listaIngredientes = value;
@@ -84,7 +86,7 @@ namespace RestTEC.DB
         // Resticciones:
         public void cambiar_Precio(int precio)
         {
-            
+            this.precio = precio;
         }
         // 
         // Entradas:
@@ -106,16 +108,18 @@ namespace RestTEC.DB
         // Entradas:
         // Salidas:
         // Resticciones:
-        public void cambiar_Tiempo_Estimado()
+        public void cambiar_Tiempo_Estimado(int nuevo_tiempo)
         {
+            this.tiempoEstimado = nuevo_tiempo;
+        }
         // 
         // Entradas:
         // Salidas:
         // Resticciones:    
-        }
+        
         public void cambiar_Veces_Solicitado()
         {
-            
+            this.vecesSolicitada = vecesSolicitada + 1;
         }
     }
 }
