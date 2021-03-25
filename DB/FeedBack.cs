@@ -47,26 +47,26 @@ namespace RestTEC.DB
         
                 //Funcionalidad FeedBack
                 
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que asigna una fecha ingresada al esta clase
+        // Entradas: la entrada es un string con formato yy:mm:dd. Este formato lo proporsiona el IDLE
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: la fecha tiene que tener el formato indicado, y en string
         public void asignar_Fecha(string fecha)
         {
             this.fecha = fecha;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que asigna una hora ingresada al esta clase
+        // Entradas: la entrada es un string en formato hh:mm
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: el string de entrada tiene que tener el formato, el fomrmato lo crea el IDLE 
         public void asignar_Hora(string hora)
         {
             this.hora = hora;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que asigna las estrellas ingresadas a la clase
+        // Entradas: la entrada es un entero con la cantidad de estrellas asignadas
+        // Salidas: la salida de esta funcion es void
+        // Resticciones: la cantidad de estrellas va de un valor de 1 a 5
         public void asignar_Estrellas(int estrellas)
         {
             this.estrellas = estrellas;

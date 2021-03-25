@@ -37,18 +37,18 @@ namespace RestTEC.DB
         }
                 //Funcionalidad Chef
                 
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que asigna un pedido a este chef
+        // Entradas: La entrada es un pedido
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: el pedido tiene que ser creado correctamente
         public void tomar_Pedido(Pedido nuevo_pedido)
         {
             lista_pedidos.Add(nuevo_pedido);
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que desasigna un pedido a este chef 
+        // Entradas: la entrada es el numero del pedido
+        // Salidas: la salida es el pedido que ya no es del chef o null si el pedido no existe
+        // Resticciones: el numero del pedido, tiene que existir, sino retorna null
         public Pedido soltar_pedido(int numero)
         {
             if (lista_pedidos[numero] != null)
@@ -61,10 +61,10 @@ namespace RestTEC.DB
             return null;
         }
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que calcula el tiempo estimado de preparacion
+        // Entradas: esta funcion no tiene entrada
+        // Salidas: la salida es el tiempo estimado de preparacion de pedidos en entrero 
+        // Resticciones: esta funcion no tiene restricciones
         public int calcular_tiempo()
         {
             if (ListaPedidos.Count == 0)

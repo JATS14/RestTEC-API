@@ -6,6 +6,7 @@ namespace RestTEC.DB
 {
     // Clase menu, es la clase que contiene todos los Platos 
     // La clase con el menu, esta dentro del administrador
+    // Esta clase es estatica para poder se accesada por todos en cualquier momento
     static class Menu
     { 
     //Atributos
@@ -25,10 +26,10 @@ namespace RestTEC.DB
     }
     //Funcionalidad Menu
 
-    // 
-    // Entradas:
-    // Salidas:
-    // Resticciones:
+    //  Funcion que agrega un plato al menu
+    // Entradas: la entrada es un plato nuevo
+    // Salidas: esta funcion no tiene salida
+    // Resticciones: el plato tiene que estar correctamente creado
     public static void agregar_plato_menu(Plato plato)
     {
         Lista_Platos.Add(new Plato(plato.precio, plato.cantidadCalorias, plato.vecesSolicitada, plato.tiempoEstimado,
@@ -36,10 +37,10 @@ namespace RestTEC.DB
 
     }
 
-    // 
-    // Entradas:
-    // Salidas:
-    // Resticciones:
+    // Funcion que elimina un plato del menu
+    // Entradas: la entrada es el plato que se desea eliminar
+    // Salidas: esta funcion no tiene salidas
+    // Resticciones: el plato que se ingresa, tiene que estar en el menu
     public static void eliminar_Plato_Menu(Plato plato)
     {
         for (int i = 0; i < Lista_Platos.Count; i++)
@@ -51,10 +52,10 @@ namespace RestTEC.DB
         }
     }
 
-    // 
-    // Entradas:
-    // Salidas:
-    // Resticciones:
+    // Funcion que muestra rapidamente los platos en el menu, con pocos detalles en la consola
+    // Entradas: esta funcion no tiene entrada
+    // Salidas: esta funcion no tiene salidas
+    // Resticciones: no tien resticciones
     public static void mostrar_Menu()
     
     {
@@ -64,10 +65,10 @@ namespace RestTEC.DB
         }
     }
     
-    // 
-    // Entradas:
-    // Salidas:
-    // Resticciones:
+    // Funcion que retorna la lista de platos del menu
+    // Entradas: esta funcion no tiene entradas
+    // Salidas: la salida es la Ilistd de los paltos del sistema
+    // Resticciones: no tiene restricciones
     public static IList<Plato> obtener_Menu()
     {
         return Lista_Platos;
@@ -77,10 +78,11 @@ namespace RestTEC.DB
     {
         
     }
-    // 
-    // Entradas:
-    // Salidas:
-    // Resticciones:
+    // Funcion que busca un plato es los del sistema 
+    //      La busqueda se hace por nombre
+    // Entradas:la entrada es el plato a buscar
+    // Salidas: si encuentra un plato en el sistema este es la salida
+    // Resticciones: El nombre del plato tiene que tener un valor
     public static Plato buscar_PLato(Plato plato)
     {
         for (int i = 0; i < Lista_Platos.Count; i++)

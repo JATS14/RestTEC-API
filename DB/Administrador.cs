@@ -43,10 +43,10 @@ namespace RestTEC.DB
         
              // Funcionalidad Platos
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion encargada de mostrar los pedidos que esten en el sistema
+        // Entradas: esta funcion no tiene entradas
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: no tiene restricciones
         public void gestionar_Pedidos()
         {
             Console.WriteLine("Se mostraran los Pedidos, cantidad: " + Lista_Pedidos.Count);
@@ -67,10 +67,11 @@ namespace RestTEC.DB
                 Console.WriteLine("----------------");
             }
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // funicion encargade de crear un plato
+        // Entradas: hay que introducir el precio, cantidad de calorias, veces solicitadas, tiempo restimado
+        //        lista feedback, lista ingredientes, un nombre y un tipo
+        // Salidas: la salida es el plato creado
+        // Resticciones: todos los atributos entrantes tienen que ser del tipo asignado previamente
         public Plato crear_Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
             IList<FeedBack> listaFeedback, IList<string> listaIngredientes, string nombre, string tipo)
         {
@@ -80,10 +81,10 @@ namespace RestTEC.DB
         }
         // Funcionalidad menu
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion encargada de mostrar con detalle todos los paltillos que estan en el menu
+        // Entradas: esta funcion no tiene entradas
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: esta funcion no tiene restricciones
         public void gestionar_Menu()
         {
             Console.WriteLine("Se mostraran los platos, cantidad: " + Menu.ListaPlatos.Count);
@@ -105,35 +106,35 @@ namespace RestTEC.DB
             }
         }
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que agrega un plato al menu
+        // Entradas: la entrada es un plato
+        // Salidas: No posee salidas
+        // Resticciones: la entradad tiene que ser un plato, previamente creado, o con los atributos correctos
         public void agregar_Plato(Plato plato)
         {
             Console.WriteLine("Se agrega plato " + plato.nombre);
             Menu.agregar_plato_menu(plato);
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que agrega un usuario nuevo a la lista de usuarios
+        // Entradas: La entrada es un usuario nuevo
+        // Salidas: esta funcion no posee salidas
+        // Resticciones:la entradad tiene que ser un Usuario, previamente creado, o con los atributos correctos
         public void agregar_Usuario(Usuario usuario)
         {
             lista_Usuarios.Add(usuario);
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que agrega un Chef nuevo a la lista de Chefs
+        // Entradas: La entrada es un usuario Chef
+        // Salidas: esta funcion no posee salidas
+        // Resticciones:la entradad tiene que ser un Chef, previamente creado, o con los atributos correctos
         public void agregar_Chef(Chef chef)
         {
             lista_Chefs.Add(chef);
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que le asigna un pepido a un chef
+        // Entradas: la entrada es el nuemero de un chef y el nuemero de un pedido
+        // Salidas:esta funcion no posee salidas
+        // Resticciones: los nuemeros del chef y el pedido tiene que ser valores existentes
         public void pedido_Chef_obtener(int numero_Chef, int numero_Pedido)
         {
             try
@@ -148,10 +149,10 @@ namespace RestTEC.DB
                 Console.WriteLine("El pedido o el Chef no existen");
             }
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que le quita un pedido a un chef y lo reasigna a pedidos pendientes
+        // Entradas: El numero de un chef y el numero de un pepido
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: los nuemeros del chef y el pedido tiene que ser valores existentes
         public void pedido_Chef_Soltar(int numero_Chef, int numero_Pedido)
         {
             try
@@ -166,10 +167,10 @@ namespace RestTEC.DB
                 Console.WriteLine("El pedido o el Chef no existen");
             }
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que revisa el ingreso de un Usuario ya registrado
+        // Entradas: se le ingresa un correo y una contrasena
+        // Salidas: returna un true si el usuario esta en el sistema o un false si no
+        // Resticciones: el correo y la contrasena tiene que ser strings
         public bool ingresar_Usuario(String correo, string contrasena)
         {
             for (int i = 0; i < lista_Usuarios.Count; i++)
@@ -183,10 +184,10 @@ namespace RestTEC.DB
 
             return false;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que revisa el ingreso de un Chef ya registrado
+        // Entradas: se le ingresa un correo y una contrasena
+        // Salidas: returna un true si el Chef esta en el sistema o un false si no
+        // Resticciones: el correo y la contrasena tiene que ser strings
         public bool ingresar_Chef(String correo, string contrasena)
         {
             for (int i = 0; i < lista_Chefs.Count; i++)
@@ -199,37 +200,37 @@ namespace RestTEC.DB
             }
             return false;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que muestra un JSON de todos los usuario registrados en el sistema
+        // Entradas: esta funcion no posee entradas
+        // Salidas: Las salida es un string con formato JSON
+        // Resticciones: esta funcion no tiene restricciones
         public String get_lista_Usuarios_Json()
         {
             string jsonString = JsonSerializer.Serialize(lista_Usuarios);
             return jsonString;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que muestra un JSON de todos los Chefs registrados en el sistema
+        // Entradas: esta funcion no posee entradas
+        // Salidas: Las salida es un string con formato JSON
+        // Resticciones: esta funcion no tiene restricciones
         public String get_lista_Chef_Json()
         {
             string jsonString = JsonSerializer.Serialize(lista_Chefs);
             return jsonString;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que muestra un JSON de todos los pedidos registrados en el sistema
+        // Entradas: esta funcion no posee entradas
+        // Salidas: Las salida es un string con formato JSON
+        // Resticciones: esta funcion no tiene restricciones
         public String get_lista_Pedidos_Json()
         {
             string jsonString = JsonSerializer.Serialize(Lista_Pedidos);
             return jsonString;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que muestra un JSON de todos los Platos registrados en el sistema
+        // Entradas: esta funcion no posee entradas
+        // Salidas: Las salida es un string con formato JSON
+        // Resticciones: esta funcion no tiene restricciones
         public String get_lista_Platos_Json()
         {
             string jsonString = JsonSerializer.Serialize(Menu.Lista_Platos);
@@ -241,10 +242,11 @@ namespace RestTEC.DB
         
         
         //-------------FeedBack-------------
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion encargada de asignar un feedback de un cliente si este hace uno
+        // Entradas: se ingresa un plato al que se le asignara el feedback, y un feedback
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: el plato tiene que ser un plato registrado en el sistema y el feedback
+        //               tiene que tener un formato correcto
         public void usuario_feedback(Plato plato, FeedBack feedback)
         {
             Menu.buscar_PLato(plato).agregar_Feedback(feedback);

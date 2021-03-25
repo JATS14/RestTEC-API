@@ -80,42 +80,42 @@ namespace RestTEC.DB
     
                 //Funcionalidad PLato
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que cambia el precio del plato por uno nuevo ingresado
+        // Entradas: la entrada es un entero 
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: la entrada es un entero nuevo distingo de cero y positivo
         public void cambiar_Precio(int precio)
         {
             this.precio = precio;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que asigna un nuevo feedback a esta clase
+        // Entradas: la entrada es un objeto tipo feedback
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: el objeto feedback tiene que estar crearse correctamente
         public void agregar_Feedback(FeedBack feedBack)
         {
             listaFeedback.Add(feedBack);
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // funcion que agrega un ingrediente a la lista 
+        // Entradas: un string con el nuevo ingrediente
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: la entrada es un string
         public void agregar_Ingrediente(string ingrediente)
         {
             
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que cambia el tiempo estimado del plato por uno nuevo ingresado
+        // Entradas: la entrada es un entero 
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: la entrada es un entero nuevo distingo de cero y positivo
         public void cambiar_Tiempo_Estimado(int nuevo_tiempo)
         {
             this.tiempoEstimado = nuevo_tiempo;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:    
+        // Funcion que cambia el la cantidad de estrellas del plato por uno nuevo ingresado
+        // Entradas: esta funcion no tiene entradas
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: esta funcion no tiene restricciones   
         
         public void cambiar_Veces_Solicitado()
         {

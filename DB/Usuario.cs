@@ -80,10 +80,11 @@ namespace RestTEC.DB
         
                 //Funcionalidad usuario
         
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que pide los datos necesarios para crear un pedido en el sistema
+        // Entradas: esta funcion no tiene entradas, pero el sistema le pide al cliente que ingrese
+        //          el pedido que desea
+        // Salidas: la salida es un pedido o null si hubo un error en el proceso
+        // Resticciones: el numero del pedido tiene que existir en el sistema y tiene que ser un int
         public Pedido hacer_pedido()
         {
             Console.WriteLine("Ingrese el numero del pedido a realizar");
@@ -110,10 +111,11 @@ namespace RestTEC.DB
                 return null;
             }
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
+        // Funcion que crea un feedback y lo asigna al plato
+        // Entradas: l anetrada es un Usuario, un fecha, hora, estrllas
+        // Salidas:la salida es un feedback ya creado
+        // Resticciones: el Usuario tiene que ser un objeto ya creado, la fecha y hora son strings
+        //              y las estrellas son un entero mayor que cero
         public FeedBack hacer_Feedback(Usuario usuario, string fecha, string hora, int estrellas)
         {
             

@@ -37,19 +37,19 @@ namespace RestTEC.DB
                 
                     //Funcionalidad Pedido
                     
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:            
+        // Funcion que asigna un chef al pedido
+        // Entradas: la entrada es un chef a asignar
+        // Salidas: esta funcion no tiene salidas
+        // Resticciones: el chef tiene que estar en la lista de chefs           
         public void asignar_chef(Chef chef)
         {
-            
+            chef_Asignado = chef;
         }
-        // 
-        // Entradas:
-        // Salidas:
-        // Resticciones:
-        public int calcular_Tiempo(Plato plato)
+        // Funcion que calcula el tiempo estimado para este plato en especifico
+        // Entradas: la funion no tiene entradas
+        // Salidas: la salida es un entero con el tiempo estimado
+        // Resticciones: esta funcion no tiene restricciones
+        public int calcular_Tiempo()
         {
             return plato.tiempoEstimado;
         }
