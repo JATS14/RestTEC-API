@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -101,8 +102,10 @@ namespace RestTEC
             Console.WriteLine("   ");
             Console.WriteLine("||||||||||||||||||||JSON||||||||||||||||||");
             
-            string jsonString = JsonSerializer.Serialize(host.lista_Usuarios);
+            string jsonString = JsonSerializer.Serialize(Menu.Lista_Platos);
             Console.WriteLine(jsonString);
+            File.WriteAllText(@"C:\Users\adria\RiderProjects\RestTEC\RestTEC\Lista_Platos.json", jsonString);
+            
             
             Console.WriteLine("   ");
             Console.WriteLine("=====================FeedBack============");
