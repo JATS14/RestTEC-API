@@ -19,33 +19,32 @@ namespace RestTEC
             Menu.Instance();
             IList<Pedido> Lista_Pedidos = new List<Pedido>();
             Plato plato1 = new Plato(1500,125,0,10,new List<FeedBack>(),
-                new List<string> {"Arroz", "Frijoles", "Huevo", "Tocino", "Natilla", "Pan"},
-                        "Gallo Pinto","Desayuno");
+                "Arroz, Frijoles, Huevo, Tocino, Natilla, Pan", "Gallo Pinto","Desayuno");
             Plato plato2 = new Plato(1000,150,0,5,new List<FeedBack>(),
-                new List<string> {"Tostadas", "Mermelada", "Mantequilla", "Natilla"},"Tostadas","Desayuno");
+                 "Tostadas, Mermelada, Mantequilla, Natilla","Tostadas","Desayuno");
             
             Plato plato3 = new Plato(2000,300,0,20,new List<FeedBack>(),
-                new List<string> {"Arroz", "Frijoles", "Platano Maduro", "Ensalada","Carne o Pollo"},
+                "Arroz, Frijoles, Platano Maduro, Ensalada,Carne o Pollo",
                                     "Casado","Almuerzo");
             
             Plato plato4 = new Plato(2000,350,0,30,new List<FeedBack>(),
-                new List<string> {"Carne", "Yuca", "Zanahoria", "Papa","Cebolla","Chile dulce"},
+                "Carne, Yuca, Zanahoria, Papa,Cebolla,Chile dulce",
                     "Olla de Carne","Almuerzo");
             
             Plato plato5 = new Plato(1200,150,0,10,new List<FeedBack>(),
-                new List<string> {"Manzana", "Crema Pastelera", "Mantequilla", "Natilla"},
+                "Manzana, Crema Pastelera, Mantequilla, Natilla",
                                 "Tarta de Manzana","Cafe");
             
             Plato plato6 = new Plato(1200,250,0,10,new List<FeedBack>(),
-                new List<string> {"Chocolate Amargo", "Mantequilla", "Huevo", "Vainilla","Canela"}
+                "Chocolate Amargo, Mantequilla, Huevo, Vainilla, Canela"
                 ,"Brownie","Cafe");
             
             Plato plato7 = new Plato(2500,300,0,30,new List<FeedBack>(),
-                new List<string> {"Arroz", "Camarones", "Pollo", "Verduras varias"},
+                "Arroz, Camarones, Pollo, Verduras varias",
                             "Arroz con Camarones","Cena");
             
             Plato plato8 = new Plato(3000,400,0,30,new List<FeedBack>(),
-                new List<string> {"Carne", "Cebolla", "Chile Dulce", "Ajo"},
+                "Carne, Cebolla, Chile Dulce, Ajo",
                     "Bistec Encebollado","Cena");
             
             
@@ -115,8 +114,8 @@ namespace RestTEC
             
             FeedBack feedback1 = new FeedBack(usuario1,fecha,hora,5);
             host.usuario_feedback(plato1, feedback1);
-
-            // CreateHostBuilder(args).Build().Run();
+        
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -73,7 +73,7 @@ namespace RestTEC.DB
         // Salidas: la salida es el plato creado
         // Resticciones: todos los atributos entrantes tienen que ser del tipo asignado previamente
         public Plato crear_Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
-            IList<FeedBack> listaFeedback, IList<string> listaIngredientes, string nombre, string tipo)
+            IList<FeedBack> listaFeedback, string listaIngredientes, string nombre, string tipo)
         {
             return new Plato(precio, cantidadCalorias, vecesSolicitada, tiempoEstimado, 
                 listaFeedback, listaIngredientes, nombre, tipo);
@@ -96,11 +96,7 @@ namespace RestTEC.DB
                 Console.WriteLine("Tiempo estimado Preparacion: "+Menu.ListaPlatos[i].tiempoEstimado);
                 //onsole.WriteLine("Estrellas Promedio: "+menu.Lista_Platos[i].);
                 Console.Write("ingredientes: ");
-                for (int j = 0; j < (Menu.ListaPlatos[i].listaIngredientes.Count - 1); j++)
-                {
-                    Console.Write(Menu.ListaPlatos[i].listaIngredientes[j]+", ");
-                }
-                Console.Write(Menu.ListaPlatos[i].listaIngredientes[(Menu.ListaPlatos[i].listaIngredientes.Count - 1)]);
+                Console.Write(Menu.ListaPlatos[i].listaIngredientes);
                 Console.WriteLine(" ");
                 Console.WriteLine("----------------");
             }

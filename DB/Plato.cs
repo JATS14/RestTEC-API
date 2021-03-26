@@ -12,13 +12,13 @@ namespace RestTEC.DB
         public int vecesSolicitada;
         public int tiempoEstimado;
         public IList<FeedBack> listaFeedback;
-        public IList<string> listaIngredientes;
+        public string listaIngredientes;
         public string nombre;
         public string tipo;
 
         //Constructor, getters y setters
         public Plato(int precio, int cantidadCalorias, int vecesSolicitada, int tiempoEstimado, 
-            IList<FeedBack> listaFeedback, IList<string> listaIngredientes, string nombre, string tipo)
+            IList<FeedBack> listaFeedback, string listaIngredientes, string nombre, string tipo)
         {
             this.precio = precio;
             this.cantidadCalorias = cantidadCalorias;
@@ -60,7 +60,7 @@ namespace RestTEC.DB
             set => listaFeedback = value;
         }
 
-        public IList<string> ListaIngredientes
+        public string ListaIngredientes
         {
             get => listaIngredientes;
             set => listaIngredientes = value;
