@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,21 +11,20 @@ namespace RestTEC.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ListaPlatosController : ControllerBase
+    public class LoginController : Controller
     {
-        private readonly ILogger<ListaPlatosController> _logger;
-
-        public ListaPlatosController(ILogger<ListaPlatosController> logger)
+        private readonly ILogger<LoginController> _logger;
+        
+        public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
         }
-
-        [HttpGet]
-        public IList<Plato> Get()
+        
+        [HttpPost]
+        public void Post()
         {
-            return Menu.Lista_Platos;
+            
         }
-
         
     }
 }
