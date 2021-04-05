@@ -13,8 +13,8 @@ namespace RestTEC.DB
         public string correo;
         private string contrasena;
         public IList<Pedido> Lista_Pedidos;
-        public IList<Usuario> lista_Usuarios;
-        public IList<Chef> lista_Chefs;
+        static public IList<Usuario> lista_Usuarios;
+        static public IList<Chef> lista_Chefs;
 
         //Constructor, getters y setters
         public Administrador(string correo, string contrasena, IList<Pedido> listaPedidos, 
@@ -184,7 +184,7 @@ namespace RestTEC.DB
         // Entradas: se le ingresa un correo y una contrasena
         // Salidas: returna un true si el Chef esta en el sistema o un false si no
         // Resticciones: el correo y la contrasena tiene que ser strings
-        public bool ingresar_Chef(String correo, string contrasena)
+        static public bool ingresar_Chef(String correo, string contrasena)
         {
             for (int i = 0; i < lista_Chefs.Count; i++)
             {
@@ -246,6 +246,32 @@ namespace RestTEC.DB
         public void usuario_feedback(Plato plato, FeedBack feedback)
         {
             Menu.buscar_PLato(plato).agregar_Feedback(feedback);
+        }
+
+        static public string login(string correo, string contrasena)
+        {
+            if (correo.Equals("admin") && contrasena.Equals("123"))
+            {
+                return "admin";
+            }
+            for (int i = 0; i < lista_Chefs.Count; i++)
+            {
+                if (lista_Chefs[i].correo.Equals(correo) &&
+                    lista_Chefs[i].Contrasena.Equals(contrasena))
+                {
+                    return "chef";
+                }
+            }
+            for (int i = 0; i < lista_Usuarios.Count; i++)
+            {
+                if (lista_Usuarios[i].correo.Equals(correo) &&
+                    lista_Usuarios[i].Contrasena.Equals(contrasena))
+                {
+                    return "usuario";
+                }
+            }
+
+            return "denegar";
         }
     }
 }

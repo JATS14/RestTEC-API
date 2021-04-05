@@ -46,7 +46,7 @@ namespace RestTEC
             Plato plato8 = new Plato(3000,400,0,30,new List<FeedBack>(),
                 "Carne, Cebolla, Chile Dulce, Ajo",
                     "Bistec Encebollado","Cena");
-            
+                
             
             Usuario usuario1 = new Usuario(303660987,"alberto120500@gmail.com","120500", 
                 "Alberto", "Espinoza",87898978,"Cartago/Cartago/Los Angeles",12052000);
@@ -80,7 +80,7 @@ namespace RestTEC
             host.gestionar_Menu();
             Console.WriteLine("Hacer pedido");
 
-            host.Lista_Pedidos.Add(host.lista_Usuarios[0].hacer_pedido());
+            //host.Lista_Pedidos.Add(Administrador.lista_Usuarios[0].hacer_pedido());
             Console.WriteLine("Cantidad de pedidos: " + host.Lista_Pedidos.Count);
             
             host.gestionar_Pedidos();
